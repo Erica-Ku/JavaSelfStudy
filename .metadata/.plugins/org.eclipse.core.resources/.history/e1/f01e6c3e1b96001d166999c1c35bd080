@@ -1,0 +1,36 @@
+package edu.mission;
+
+public class Mission6 {
+
+	public static void main(String[] args) {
+		int a = 12;
+		int b = 18;
+		
+		if(a>b) {
+			int max = a;
+			int min = b;
+			max%min = rem;
+			if(rem==0) {
+				int c = b;
+			}
+			for(int i = 0; i < 3; i++) {
+				max = min;
+				min = rem;
+			}
+		}
+		int max = b;
+		int min = a;
+		max%min = rem;
+		if(rem==0) {
+			int c = a;
+		}
+		for(int i = 0; i < 3; i++) {
+			max = min;
+			min = rem;
+		}
+		System.out.println(max);
+		System.out.println(min);
+
+	}
+
+}

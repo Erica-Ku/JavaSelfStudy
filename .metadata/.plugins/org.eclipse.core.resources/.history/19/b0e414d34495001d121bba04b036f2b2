@@ -1,0 +1,20 @@
+package com.ruby.java.ch07.inheritance;
+
+public class Student extends Person {
+	private String major;
+
+	public String getMajor() {
+		return major;
+	}
+	public void setMajor(String major) {
+		this.major = major;
+	}
+	
+	public String toString() {
+		return this.getName() + ":" + this.getAge() + ":" + major;
+	}
+	
+	public Student() {
+		System.out.println("Student 생성자 실행!");
+	}
+}

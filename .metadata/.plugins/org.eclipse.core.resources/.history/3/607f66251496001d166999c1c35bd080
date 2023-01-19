@@ -1,0 +1,29 @@
+package edu.mission;
+
+public class Mission5 {
+	public static void merge(int [] a, int [] b, int [] sum) {
+		    for (int i = 0; i<a.length; i++) {
+			sum[i] = a[i] + b[i];
+			printArray(sum);
+		    }
+		}
+	
+	public static void printArray(int [] arr) {
+		for (int i = 0 ; i < arr.length ; i++ ) {
+			System.out.print(arr[i] + " ");
+		}
+		System.out.println();
+	}
+
+	public static void main(String[] args) {
+		int [] a = {1,2,3,4,5};
+		int [] b = {6,7,8,9,10};
+		int [] c = new int [a.length];
+		
+		printArray(a);
+		System.out.println();
+		printArray(b);
+		System.out.println();
+		merge(a,b,c);
+	}
+}

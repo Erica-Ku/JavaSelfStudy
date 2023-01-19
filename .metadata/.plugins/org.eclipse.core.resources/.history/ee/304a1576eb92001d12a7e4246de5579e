@@ -1,0 +1,15 @@
+package edu.mission;
+
+public class Mission1 {
+
+	public static void main(String[] args) {
+		double a = 9.81;
+		int t = 5;
+		int v0 = 0;
+		int x0 = -1000;
+		double l;
+		l = (0.5*a*t*t) + (v0*t) + x0;
+		
+		System.out.println("5초 후 위치 : " + -l);
+	}
+}

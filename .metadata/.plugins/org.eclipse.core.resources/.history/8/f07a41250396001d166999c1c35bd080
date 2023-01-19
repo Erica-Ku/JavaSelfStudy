@@ -1,0 +1,21 @@
+package edu.mission;
+
+import java.util.Scanner;
+public class Mission3 {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int a;
+
+		while(true) {
+			a = n % 2;
+			n /= 2;
+			System.out.print();
+			if(n < n/2) {
+				break;
+			}
+		}
+		sc.close();
+	}
+}

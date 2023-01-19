@@ -1,0 +1,14 @@
+package com.ruby.java.ch07.inheritance;
+
+public class Employee {
+
+}
+龕봅   7   'com/ruby/java/ch07/inheritance/Employee  %com/ruby/java/ch07/inheritance/Person dept Ljava/lang/String; <init> ()V Code
+    LineNumberTable LocalVariableTable this )Lcom/ruby/java/ch07/inheritance/Employee; getDept ()Ljava/lang/String;	     setDept (Ljava/lang/String;)V 
+SourceFile 
+Employee.java !                	   /     *? 
+?            
+               	   /     *? ?            
+               	   >     *+? ?       
+      
+                      
