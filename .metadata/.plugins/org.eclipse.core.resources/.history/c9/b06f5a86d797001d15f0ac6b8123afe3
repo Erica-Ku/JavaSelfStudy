@@ -1,6 +1,6 @@
-package com.ruby.java.ch06;
+package edu.mission;
 
-public class ArmorTest {
+public class Mission7_1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
