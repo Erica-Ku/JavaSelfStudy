@@ -1,0 +1,19 @@
+package edu.mission;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class Mission9 {
+
+	public static void main(String[] args) {
+		try (FileInputStream fi = new FileInputStream("input.txt");
+			FileOutputStream fo = new FileOutputStream("output.txt");) {
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+
+	}
+
+}

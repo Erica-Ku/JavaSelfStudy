@@ -1,0 +1,78 @@
+package edu.mission;
+
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Mission9 {
+
+//	public static void main(String[] args) {
+//		try (FileInputStream fi = new FileInputStream("input.txt");)
+//			 {
+//			try (BufferedReader br = new BufferedReader(new FileReader("input.txt"));) {
+//				String str;
+//				while((str = br.readLine()) != null) {
+//					System.out.println(str);
+//				} str.split(str)
+//				ArrayList<String> list = new ArrayList<String>();
+//				
+//				
+//				} catch (IOException e) {
+//				e.printStackTrace();
+//			}
+//			
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
+
+	public static ArrayList<String> readNumbers() {
+		try (BufferedReader br = new BufferedReader(new FileReader("input.txt"));) {
+
+			ArrayList<String> list = new ArrayList<String>();
+
+			String str;
+			while((str = br.readLine()) != null) {
+				System.out.println(str);
+				list.add(str);
+			}				
+			return list;
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	public static ArrayList<Integer> reverseNumber(String str) {
+
+		String[] sa = str.split("");
+		
+		ArrayList<Integer> ret = new ArrayList<>();
+		int j = 0;
+		for (int i = sa.length -1 ; 0 <= i ; i--) {
+			ret.add = sa[i];
+		}
+		return ret;
+	}
+	
+	public static void main(String[] args) {
+		
+		// 먼저 데이터를 읽으들여서 배열로 만든다.
+		ArrayList<String> strArr = readNumbers();
+		if (strArr == null) {
+			System.out.println("Error");
+			return;
+		}
+		
+		// 각 배열 데이터를 모두 잘라서 역순으로 숫자 배열로 만든다.
+		ArrayList<Integer> arr1 = reverseNumber(strArr.get(0));
+		ArrayList<Integer> arr2 = reverseNumber(strArr.get(1));
+		
+		// 두 배열을 더한다.
+		
+		// 출력한다.
+		
+	}
+}
