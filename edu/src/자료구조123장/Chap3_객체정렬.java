@@ -24,7 +24,14 @@ class Fruit implements Comparable<Fruit> {
 		@Override
 		public int compareTo(Fruit o) {
 		//구현할 부분
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else if(this.name.compareTo(o.name)<0) return -1;
+			else return 0;
 		}
+		
 	public int getPrice() {
 		return price;
 	}
@@ -61,8 +68,8 @@ public class Chap3_객체정렬 {
     System.out.println("정렬전::");
     for ( Fruit city: arr)
     	System.out.print(" " + city);
-	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
-
+	//Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+    Arrays.sort(arr);
 //    int count = arr.length;
 //    for (int i = 0; i < count; i++)
 //    	for (int j = i +1; j < count; j++) {
@@ -102,11 +109,28 @@ public class Chap3_객체정렬 {
 	Fruit data1 = iter1.next();
 	Fruit data2 = iter2.next();
     	//구현할 부분
+	int ix = 0, iy = 0;
+	while (ix < lst1.size() && iy < lst2.size()) {
+		if (lst1.get(ix).compareTo(lst2.get(iy))<0) {
+			lst3.add(lst1.get(ix++));
+		} else if(lst1.get(ix).compareTo(lst2.get(iy))>0) {
+			lst3.add(lst2.get(iy++));
+		} else {
+			lst2.remove(iy);
+		}
+	}
+	while (ix < lst1.size()) {
+		lst3.add(lst1.get(ix++));
+	}
+	while (iy < lst2.size()) {
+		lst3.add(lst2.get(iy++));
+	}
+	
 	System.out.println();
     System.out.println("merge:: ");
     for ( Fruit city: lst3)
     	System.out.print(city+ " ");
-    Fruit newFruit = new Fruit("참외", 100);
+    Fruit newFruit = new Fruit("바나나", 50);
     //binary search
     Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
         public int compare(Fruit u1, Fruit u2) {
@@ -130,10 +154,23 @@ public class Chap3_객체정렬 {
 	int result2 = binSearch(fa, lst3.size(), newFruit);
 	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
 	*/
+	binSearch(fa, result3, newFruit);
+	System.out.println(binSearch(fa, result3, newFruit));
 	}
+
 	// 교재 109 페이지 참조하여 구현
 	static int binSearch(Fruit[]a, int n, Fruit f) {
 	//구현할 부분
+		int pl = 0;
+		int pr = n-1;
 		
+		do {
+			int pc = (pl + pr) / 2;
+			if (a[pc].compareTo(f)==0) return pc;
+			else if (a[pc].compareTo(f)<0) pl = pc + 1;
+			else pr = pc - 1;
+		} while (pl <= pr);
+		
+		return -1;
 	}
 }

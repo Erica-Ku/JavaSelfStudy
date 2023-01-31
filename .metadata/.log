@@ -2726,3 +2726,2035 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2023-01-31 13:54:25.012 -----------------------------------------------
+eclipse.buildId=4.26.0.20221201-1200
+java.version=17.0.5
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY ch.qos.logback.classic 1 0 2023-01-31 13:54:26.384
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2023-01-31 13:54:30.333
+!MESSAGE Logback config file: D:\구민지\java_class\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.1.0.20221015-0744.xml
+
+!ENTRY org.eclipse.jface 2 0 2023-01-31 13:54:33.232
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-01-31 13:54:33.232
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.navigate.open.type"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.lsp4e.symbolinworkspace"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+!SUBENTRY 1 org.eclipse.jface 2 0 2023-01-31 13:54:33.232
+!MESSAGE A conflict occurred for ALT+SHIFT+R:
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.edit.text.java.rename.element,Rename - Refactoring ,
+		Rename the selected element,
+		Category(org.eclipse.jdt.ui.category.refactoring,Refactor - Java,Java Refactoring Actions,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.jdt.ui.edit.text.java.rename.element"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(ALT+SHIFT+R,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.rename,Rename,
+		Rename the selected item,
+		Category(org.eclipse.ui.category.file,File,null,true),
+		WorkbenchHandlerServiceHandler("org.eclipse.ui.edit.rename"),
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.egit.ui 2 0 2023-01-31 13:54:35.620
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\SW'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:22.084
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)>0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-01-31 15:40:22.085
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-01-31 15:40:22.085
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:22.520
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)>0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:22.627
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:22.628
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:23.403
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)>0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:23.404
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:23.404
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:24.475
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)<0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 2 2023-01-31 15:40:24.476
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.ui".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.ui 4 0 2023-01-31 15:40:24.476
+!MESSAGE Error in JDT Core during reconcile
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.AST.convertCompilationUnit(AST.java:561)
+	at org.eclipse.jdt.internal.core.CompilationUnit.buildStructure(CompilationUnit.java:201)
+	at org.eclipse.jdt.internal.core.Openable.generateInfos(Openable.java:266)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:597)
+	at org.eclipse.jdt.internal.core.CompilationUnit.makeConsistent(CompilationUnit.java:1148)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.makeConsistent(ReconcileWorkingCopyOperation.java:173)
+	at org.eclipse.jdt.internal.core.ReconcileWorkingCopyOperation.executeOperation(ReconcileWorkingCopyOperation.java:94)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.run(JavaModelOperation.java:740)
+	at org.eclipse.jdt.internal.core.JavaModelOperation.runOperation(JavaModelOperation.java:806)
+	at org.eclipse.jdt.internal.core.CompilationUnit.reconcile(CompilationUnit.java:1325)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:132)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy$1.run(JavaReconcilingStrategy.java:94)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:91)
+	at org.eclipse.jdt.internal.ui.text.java.JavaReconcilingStrategy.reconcile(JavaReconcilingStrategy.java:158)
+	at org.eclipse.jdt.internal.ui.text.CompositeReconcilingStrategy.reconcile(CompositeReconcilingStrategy.java:94)
+	at org.eclipse.jdt.internal.ui.text.JavaCompositeReconcilingStrategy.reconcile(JavaCompositeReconcilingStrategy.java:107)
+	at org.eclipse.jface.text.reconciler.MonoReconciler.process(MonoReconciler.java:76)
+	at org.eclipse.jface.text.reconciler.AbstractReconciler$BackgroundThread.run(AbstractReconciler.java:207)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:24.482
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)<0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:189)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:24.483
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:189)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:24.483
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:189)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:25.346
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)<0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:25.347
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:25.347
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:26.714
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)<0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:26.714
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:26.715
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.internalGetHoverInfo(NLSStringHover.java:141)
+	at org.eclipse.jdt.internal.ui.text.java.hover.NLSStringHover.getHoverInfo2(NLSStringHover.java:120)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.core 4 4 2023-01-31 15:40:26.846
+!MESSAGE Exception occurred during compilation unit conversion:
+----------------------------------- SOURCE BEGIN -------------------------------------
+package 자료구조123장;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+//Comparable 인터페이스를 사용하려면 compareTo() method를 구현
+class Fruit implements Comparable<Fruit> {
+	    private String name;
+	    private int price;
+	    public Fruit(String name, int price) {
+	        this.name = name;
+	        this.price = price;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "<" + name + ", " + price + ">";
+	    }
+
+		@Override
+		public int compareTo(Fruit o) {
+		//구현할 부분\
+			/*if(this.price>o.price) return 1;
+			else if(this.price<o.price) return -1;
+			else return 0;*/
+			if(this.name.compareTo(o.name)>0) return 1;
+			else(this.name.compareTo(o.name)<0)
+		}
+		
+	public int getPrice() {
+		return price;
+	}
+}
+
+public class Chap3_객체정렬 {
+	public static void main(String[] args) {
+//	String[] s = { "sort", "string", "array" };
+//	Arrays.sort(s);
+//	Arrays.sort(s, Comparator.naturalOrder());
+//	Arrays.sort(s, Comparator.reverseOrder()); 
+	
+	/*
+	Arrays.sort(s, new Comparator<String>() {
+	    @Override
+	    public int compare(String o1, String o2) {
+	        return o2.compareTo(o1);            // 내림차순으로 정렬
+	    }
+	});
+	*/
+//	s = Arrays.stream(s).sorted().toArray(String[]::new);	
+//	s = Arrays.stream(s).sorted(Collections.reverseOrder()).toArray(String[]::new);
+//	Collections.sort(Arrays.asList(s));
+	Fruit[] arr = {
+	        new Fruit("사과", 200),
+	        new Fruit("키위", 500),
+	        new Fruit("오렌지", 200),
+	        new Fruit("바나나", 50),
+	        new Fruit("수박", 880),
+	        new Fruit("체리", 10)
+	};
+	
+    System.out.println(arr);
+    System.out.println("정렬전::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+	Arrays.sort(arr, (a,b) -> a.getPrice() - b.getPrice()); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+
+//    int count = arr.length;
+//    for (int i = 0; i < count; i++)
+//    	for (int j = i +1; j < count; j++) {
+//    		if (arr[i].compareTo(arr[j]) > 0)
+//    		{
+//    			Fruit temp; temp = arr[i]; arr[i] = arr[j]; arr[j] = temp;
+//    		}
+//    	}
+    System.out.println();
+    System.out.println("정렬후::");
+    for ( Fruit city: arr)
+    	System.out.print(" " + city);
+
+	ArrayList<Fruit> lst1 = new ArrayList<Fruit>(Arrays.asList(arr));
+	ArrayList<Fruit> lst2 = new ArrayList<Fruit>();
+	lst2.add(new Fruit("복숭아", 200));
+	lst2.add(new Fruit("포도", 300));
+	lst2.add(new Fruit("참외", 100));
+	lst2.add(new Fruit("딸기", 50));
+	lst2.add(new Fruit("블루베리", 500));
+	lst2.add(new Fruit("구지뽕", 300));
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+//    Arrays.sort(lst2);
+    Collections.sort(lst2);
+	System.out.println();
+	System.out.println("새로운 리스트2::");
+    for ( Fruit city: lst2)
+    	System.out.print(" " + city);
+    
+    ArrayList<Fruit> lst3 = new ArrayList<Fruit>();
+	
+	Iterator<Fruit> iter1 = lst1.iterator();
+	Iterator<Fruit> iter2 = lst2.iterator();
+	Fruit data1 = iter1.next();
+	Fruit data2 = iter2.next();
+    	//구현할 부분
+	System.out.println();
+    System.out.println("merge:: ");
+    for ( Fruit city: lst3)
+    	System.out.print(city+ " ");
+    Fruit newFruit = new Fruit("참외", 100);
+    //binary search
+    Comparator<Fruit> cc = new Comparator<Fruit>() {//익명클래스 사용 
+        public int compare(Fruit u1, Fruit u2) {
+          return u1.compareTo(u2);
+        }
+      };
+     int res = cc.compare(data1, newFruit);
+     if (res > 0)
+    	 System.out.println("\ndata1 > newFruit\n");
+      /*
+    System.out.println();
+    int result = Collections.binarySearch(lst3, newFruit, cc);
+		System.out.println("\nCollections.binarySearch() 조회결과::" + lst3.get(result));
+	*/
+
+	Fruit [] fa = new Fruit[lst3.size()];
+	fa = lst3.toArray(fa);
+    int result3 = Arrays.binarySearch(fa, newFruit, cc);
+	System.out.println("\nArrays.binarySearch() 조회결과::" + lst3.get(result3));
+	/*
+	int result2 = binSearch(fa, lst3.size(), newFruit);
+	System.out.println("\nbinSearch() 조회결과:" + lst3.get(result2));
+	*/
+	}
+
+	// 교재 109 페이지 참조하여 구현
+	static int binSearch(Fruit[]a, int n, Fruit f) {
+	//구현할 부분
+		
+	}
+}
+----------------------------------- SOURCE END -------------------------------------
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 2 2023-01-31 15:40:26.847
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.jdt.core.manipulation".
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.jdt.core.manipulation 4 0 2023-01-31 15:40:26.847
+!MESSAGE Error in JDT Core during AST creation
+!STACK 0
+java.lang.IllegalArgumentException
+	at org.eclipse.jdt.core.dom.InfixExpression.setOperator(InfixExpression.java:383)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1287)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2047)
+	at org.eclipse.jdt.core.dom.ASTConverter.convertToParenthesizedExpression(ASTConverter.java:3882)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1953)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1204)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1990)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3124)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:2273)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3066)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:751)
+	at org.eclipse.jdt.core.dom.ASTConverter.buildBodyDeclarations(ASTConverter.java:208)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:3419)
+	at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:1534)
+	at org.eclipse.jdt.core.dom.CompilationUnitResolver.convert(CompilationUnitResolver.java:344)
+	at org.eclipse.jdt.core.dom.ASTParser.internalCreateAST(ASTParser.java:1272)
+	at org.eclipse.jdt.core.dom.ASTParser.createAST(ASTParser.java:868)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider$1.run(CoreASTProvider.java:294)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.createAST(CoreASTProvider.java:286)
+	at org.eclipse.jdt.core.manipulation.CoreASTProvider.getAST(CoreASTProvider.java:199)
+	at org.eclipse.jdt.core.manipulation.SharedASTProviderCore.getAST(SharedASTProviderCore.java:138)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup.calculateASTandInform(SelectionListenerWithASTManager.java:166)
+	at org.eclipse.jdt.internal.ui.viewsupport.SelectionListenerWithASTManager$PartListenerGroup$1.run(SelectionListenerWithASTManager.java:151)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

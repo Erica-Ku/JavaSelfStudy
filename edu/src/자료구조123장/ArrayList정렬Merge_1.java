@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 //10장 Collection, Test01, Test02를 사용
 import java.util.ArrayList;
@@ -74,6 +75,24 @@ public class ArrayList정렬Merge_1 {
 				for (String city : sarray2)
 					System.out.print(city + " ");
 				System.out.println("+++++++");
+				/*
+				 //방법1
+				Arrays.sort(sarray1, (a,b) -> a.compareTo(b)); //Fruit에 compareTo()가 있어도 람다식 우선 적용
+				//방법2
+				Arrays.sort(sarray1, new Comparator<String>() {
+				    @Override
+				    public int compare(String a1, String a2) {
+				        return a1.compareTo(a2);
+				    }
+				});
+				//방법3
+				Comparator<String> cc1 = new Comparator<Fruit>() {//익명클래스 사용 
+			        public int compare(Fruit u1, Fruit u2) {
+			          return u1.compareTo(u2);
+			        }
+			      };
+			      Arrays.sort(null, null);
+			    */
 				// file1에서 read하여 list1.add()한다.
 				// 배열을 list로 만드는 방법
 				// 방법1:
@@ -101,31 +120,50 @@ public class ArrayList정렬Merge_1 {
 				list2 = removeDuplicate1(list2);
 	 
 
-				System.out.print("\n" + "list1******");
+				System.out.print("\n" + "중복제거후 list1:");
 				for (String city : list1)
 					System.out.print(city + " ");
-				System.out.print("\n" + "list2******");
+				System.out.print("\n" + "중복제거후 list2:");
 				for (String city : list2)
 					System.out.print(city + " ");
 				ArrayList<String> list3 = new ArrayList<String>();
+				//list를 사용하여 merge
+				int ix = 0, iy = 0;
+				while (ix < list1.size() && iy < list2.size()) {
+					if (list1.get(ix).compareTo(list2.get(iy))<0) {
+						list3.add(list1.get(ix++));
+					} else if(list1.get(ix).compareTo(list2.get(iy))>0) {
+						list3.add(list2.get(iy++));
+					} else {
+						list2.remove(iy);
+					}
+				}
+				while (ix < list1.size()) {
+					list3.add(list1.get(ix++));
+				}
+				while (iy < list2.size()) {
+					list3.add(list2.get(iy++));
+				}
+				
 				//--------------------- array version: merge에 중복 제거하면 정상 동작함 
 				String [] sl1 = new String[list1.size()];
 				String [] sl2 = new String[list2.size()];
 				String [] sl3 = new String[list1.size() + list2.size()];
 				sl1 = list1.toArray(sl1);
 				sl2 = list2.toArray(sl2);
-				System.out.println();
+				/*System.out.println();
 				for (String city : sl1)
 					System.out.print(city + " ");
 				System.out.println();
 				for (String city : sl2)
-					System.out.print(city + " ");
+					System.out.print(city + " ");*/
 				int px = 0, qx = 0, rx = 0;
 				int cnt1 = sl1.length, cnt2 = sl2.length;
 				//merge하는 부분을 구현: 스트링 배열이 정렬되고 중복이 제거된 경우
+				/*
 				int p = 0;
 				int q = 0;
-				while (p < sl1.length & q < sl2.length) {
+				while (p < sl1.length | q < sl2.length) {
 					if(sl1[p].compareTo(sl2[q])==0) {
 						list2.remove(q);
 						q++;
@@ -135,11 +173,11 @@ public class ArrayList정렬Merge_1 {
 				}
 				list1.addAll(list2);
 				sl3 = list1.toArray(sl3);
+				*/
 				
-				
-				System.out.println("sl3 = ");
-				for (String city : sl3)
-					System.out.print(city + " ");
+				//System.out.println("sl3 = ");
+				//for (String city : sl3)
+				//	System.out.print(city + " ");
 				// -------------------- list version
 				/*
 				Iterator<String> iter1 = list1.iterator();
