@@ -19,7 +19,7 @@ public class 원형큐 {
     
     //생성자
     public 원형큐(int capacity) {
-    	front = rear = 0;
+    	front = rear = -1;
     	num = (rear - front + capacity) % capacity;
     	this.capacity = capacity;
     	try {
@@ -79,12 +79,12 @@ public class 원형큐 {
     
     //큐가 비어 있나요?
     public boolean isEmpty() {
-    	return front == rear;
+    	return num <= 0;
     }
     
     //큐가 가득 찼나요?
     public boolean isFull() {
-    	return (rear + 1) % capacity == front;
+    	return num >= capacity;
     }
     
     //큐 안의 모든 데이터를 프런트 -> 리어 순서로 출력
