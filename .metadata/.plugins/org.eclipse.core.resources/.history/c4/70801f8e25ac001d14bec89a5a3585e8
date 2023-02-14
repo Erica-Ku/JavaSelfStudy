@@ -39,7 +39,7 @@ public class Mission9_1 {
 			System.out.println("Error");
 			return;
 		}
-		System.out.println("프린트:"+numArr);
+		
 		// 자리수가 큰 배열을 0번째로 설정
 		int dif = numArr.get(0).size() - numArr.get(1).size();
 		if (dif < 0) {
@@ -72,8 +72,8 @@ public class Mission9_1 {
 			}
 		}
 		// 결과 출력하기
-		for (int i = numArr.get(0).size()-1 ; 0 <= i; i--) {
-			System.out.print(numArr.get(0).get(i));
+		for (int i = numArr.get(0).size()-1 ; 0 <= i+1; i--) {
+			System.out.print(numArr.get(1).get(i));
 		}
 		System.out.println("\nDone");
 	}
