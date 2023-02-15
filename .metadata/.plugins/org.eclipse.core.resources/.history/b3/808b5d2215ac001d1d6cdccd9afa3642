@@ -1,0 +1,76 @@
+package edu.mission;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Mission9_2 {
+	private static ArrayList<ArrayList<Integer>> numArr = new ArrayList<>();
+
+    public static boolean readNumbers() {
+        String str;
+        try (BufferedReader br = new BufferedReader(new FileReader("input.txt"));) {
+
+            for (int i = 0; i < 2; i++) {
+                numArr.add(new ArrayList<Integer>());
+                str = br.readLine();
+                if (str == null) {
+                    return false;
+                }
+                String[] arr = str.split("");
+                for (int j = arr.length - 1; 0 <= j; j--) {
+                    numArr.get(i).add(Integer.parseInt(arr[j]));
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        // Read the two numbers from the file
+        if (readNumbers() == false) {
+            System.out.println("Error reading numbers from file");
+            return;
+        }
+        // Set the larger number as the first element in the `numArr` list
+        int dif = numArr.get(0).size() - numArr.get(1).size();
+        if (dif < 0) {
+            ArrayList<Integer> tArr = numArr.get(0);
+            numArr.set(0, numArr.get(1));
+            numArr.set(1, tArr);
+            dif = Math.abs(dif);
+        }
+        // Add the two numbers
+        int carry = 0;
+        for (int i = 0; i < numArr.get(1).size(); i++) {
+            int sum = numArr.get(0).get(i) + numArr.get(1).get(i) + carry;
+            numArr.get(0).set(i, sum % 10);
+            if (sum >= 10) {
+                carry = 1;
+            } else {
+                carry = 0;
+            }
+        }
+        if (carry == 1) {
+            if (numArr.get(0).size() == numArr.get(1).size()) {
+                numArr.get(0).add(1);
+            } else {
+                for (int i = numArr.get(1).size(); i < numArr.get(0).size(); i++) {
+                    int sum = numArr.get(0).get(i) + carry;
+                    numArr.get(0).set(i, sum % 10);
+                    if (sum >= 10) {
+                        carry = 1;
+                    } else {
+                        break;
+                    }
+                }
+                if (carry == 1) {
+                    numArr.get(0).add(1);
+                }
+            }
+        }
+    }
+}
