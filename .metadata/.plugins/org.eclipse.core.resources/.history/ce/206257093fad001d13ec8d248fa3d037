@@ -72,8 +72,15 @@ public class Mission9_1 {
 			}
 		}
 		// 결과 출력하기
-		for (int i = numArr.get(0).size() ; 0 <= i; i++) {
-			System.out.print(numArr.get(0).get(i));
+		if (numArr.get(0).size()>=numArr.get(1).size()+2) {
+			for (int i = numArr.get(0).size() - 2 ; 0 <= i ; i--) {
+				System.out.print(numArr.get(0).get(i));
+			}
+		}
+		else {
+			for (int i = numArr.get(0).size() - 1 ; 0 <= i ; i--) {
+				System.out.print(numArr.get(0).get(i));
+			}
 		}
 		System.out.println("\nDone");
 	}

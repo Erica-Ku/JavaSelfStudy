@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 INDEX VERSION 1.131+C:\Users\touch\Desktop\sw ÈÆ·Ã°úÁ¤\java_class\.metadata\.plugins\org.eclipse.jdt.core
 3501714628.index
 1865797976.index
-=======
-INDEX VERSION 1.131+D:\±¸¹ÎÁö\java_class\.metadata\.plugins\org.eclipse.jdt.core
-1865797976.index
-3501714628.index
->>>>>>> 4d0fa178a4e0fa8fb13a918bfd7d97f67d187be9
 3481095645.index
