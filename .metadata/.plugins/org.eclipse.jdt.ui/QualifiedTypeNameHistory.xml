@@ -21,5 +21,8 @@
     <fullyQualifiedTypeName name="java.nio.channels.FileChannel"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.awt.Point"/>
+<<<<<<< HEAD
     <fullyQualifiedTypeName name="Chap5_재귀알고리즘.EightQueen_1"/>
+=======
+>>>>>>> 4d0fa178a4e0fa8fb13a918bfd7d97f67d187be9
 </qualifiedTypeNameHistroy>

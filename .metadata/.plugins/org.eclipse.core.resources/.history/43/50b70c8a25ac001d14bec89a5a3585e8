@@ -21,10 +21,7 @@ public class Mission9_1 {
 				System.out.println(str);
 				
 				String[] arr = str.split("");
-<<<<<<< HEAD
-=======
 				
->>>>>>> 4d0fa178a4e0fa8fb13a918bfd7d97f67d187be9
 				for (int j = arr.length - 1 ; 0 <= j ; j--) {
 					numArr.get(i).add(Integer.parseInt(arr[j]));
 				}
@@ -42,10 +39,7 @@ public class Mission9_1 {
 			System.out.println("Error");
 			return;
 		}
-<<<<<<< HEAD
-=======
-		System.out.println("프린트:"+numArr);
->>>>>>> 4d0fa178a4e0fa8fb13a918bfd7d97f67d187be9
+		
 		// 자리수가 큰 배열을 0번째로 설정
 		int dif = numArr.get(0).size() - numArr.get(1).size();
 		if (dif < 0) {
@@ -73,29 +67,14 @@ public class Mission9_1 {
 					if (10 <= sum)	olrim = 1;
 					else			break;			
 				}
-<<<<<<< HEAD
-			}
-		}
-		if (olrim == 1)
-					numArr.get(0).add(1);
-		// 결과 출력하기
-		if(numArr.get(0).size()>=numArr.get(1).size()+2) {
-			for (int i = numArr.get(0).size()-2 ; 0 <= i; i--) {
-				System.out.print(numArr.get(0).get(i));
-		}} else {
-			for (int i = numArr.get(0).size()-1 ; 0 <= i; i--) {
-			System.out.print(numArr.get(0).get(i)); 
-		}}
-=======
 				if (olrim == 1)
 					numArr.get(0).add(1);
 			}
 		}
 		// 결과 출력하기
-		for (int i = numArr.get(0).size()-1 ; 0 <= i; i--) {
-			System.out.print(numArr.get(0).get(i));
+		for (int i = numArr.get(0).size()-1 ; 0 <= i ; i--) {
+			System.out.print(numArr.get(1).get(i));
 		}
->>>>>>> 4d0fa178a4e0fa8fb13a918bfd7d97f67d187be9
 		System.out.println("\nDone");
 	}
 }
