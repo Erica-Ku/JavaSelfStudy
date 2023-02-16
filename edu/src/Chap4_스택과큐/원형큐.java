@@ -2,10 +2,12 @@ package Chap4_스택과큐;
 
 public class 원형큐 {
 	private Point[] data;
-	private int capacity;         
+	//private int capacity;         
     private int front;            
     private int rear;
-    private int num;
+    //private int num;
+    boolean isEmpty;
+    int queue_size = 4;
     
     //실행 시 예외: 큐가 비어 있음
     public class Empty원형큐Exception extends RuntimeException {
@@ -21,9 +23,10 @@ public class 원형큐 {
     
     //생성자
     public 원형큐(int capacity) {
-    	front = rear = -1;
-    	num = 0;
-    	this.capacity = capacity;
+    	front = rear = 0;
+    	//num = 0;
+    	//this.capacity = capacity;
+    	isEmpty = true;
     	try {
     		data = new Point[capacity];
     	} catch (OutOfMemoryError e) {
@@ -32,82 +35,70 @@ public class 원형큐 {
     }
     
     //큐에 데이터를 push
-    public Point push(Point x) throws Overflow원형큐Exception {
-    	if (isFull()) throw new Overflow원형큐Exception();
+    public void push(Point x) throws Overflow원형큐Exception {
+//    	if (isFull()) throw new Overflow원형큐Exception();
+//    	else {
+//    		num++;
+//    		if(front==-1) {
+//    			front = 0;
+//				rear = (rear + 1) % capacity;
+//				data[rear] = x; 
+//    		}
+//    		else {
+//				rear = (rear + 1) % capacity;
+//				data[rear] = x;
+//			}
+//			return x;
+//    	}
+    	if(rear==front && !isEmpty) throw new Overflow원형큐Exception();
     	else {
-    		num++;
-    		if(front==-1) {
-    			front = 0;
-				rear = (rear + 1) % capacity;
-				data[rear] = x; 
-    		}
-    		else {
-				rear = (rear + 1) % capacity;
-				data[rear] = x;
-			}
-			return x;
+    		isEmpty=false;
+    		data[rear] = x;
+    		rear++;
+    		rear%=queue_size;
     	}
     }
     
     //큐에 데이터를 pop
     public Point pop() throws Empty원형큐Exception {
-    	if (isEmpty()) throw new Empty원형큐Exception();
+    	if (rear==front && isEmpty) throw new Empty원형큐Exception();
+//    	else {
+//			Point x = data[front];
+//			num--;
+//			if (front == rear)
+//				front = rear = -1;
+//			else
+//				front = (front + 1) % capacity;
+//			return x;
+//		}
     	else {
-			Point x = data[front];
-			num--;
-			if (front == rear)
-				front = rear = -1;
-			else
-				front = (front + 1) % capacity;
-			return x;
-		}
+    		Point x = data[front];
+    		front++;
+    		front%=queue_size;
+    		if(front==rear) isEmpty=true;
+    		return x;
+    	}
     }
     
-    //큐가 비어 있나요?
-    public boolean isEmpty() {
-    			if (front == -1)
-    				return true;
-    			else
-    				return false;
+    public void clear() {
+    	for(int i =0; i<data.length;i++) {
+    		data[i]=null;
+    		front=rear=0;
+    	}
+    	isEmpty=true;
+    	System.out.println("원형큐를 비웠습니다.");
     }
     
-    //큐가 가득 찼나요?
-    public boolean isFull() {
-    			if (front == 0 && rear == capacity - 1)
-    				return true;
-    			else if (front == rear + 1)
-    				return true;
-    			else
-    				return false;
-    }
-    
-    //큐 안의 모든 데이터를 프런트 -> 리어 순서로 출력
-    public void dump() {
-    	if (isEmpty())
-			System.out.println("큐가 비어있습니다.");
-
-		else if (front <= rear) {
-			System.out.printf("*** :: 현재 저장된 데이터 :: %2d개\n", num);
-			for (int i = front; i <= rear; i++) {
-				System.out.print(data[i] + " ");
-			}
-
-			System.out.println();
-		}
-
-		else {
-			System.out.printf("현재 저장된 데이터 : %2d개\n", num);
-
-			for (int i = front; i < capacity; i++) {
-				System.out.print(data[i] + " ");
-			}
-
-			for (int i = 0; i <= rear; i++) {
-				System.out.print(data[i] + " ");
-			}
-
-			System.out.println();
-
-		}
+    public void print() {
+    	int cursor = front;
+    	if(isEmpty) {
+    		System.out.println("원형큐가 비어있습니다.");
+    		return;
+    	}
+    	do {
+    		System.out.print(data[cursor]+"");
+    		cursor++; cursor%=queue_size;
+    	} while(cursor!=rear);
+    	System.out.println();
     }
 }

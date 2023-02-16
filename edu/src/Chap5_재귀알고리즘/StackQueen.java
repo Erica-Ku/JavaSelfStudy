@@ -38,14 +38,14 @@ public class StackQueen {
 	private int ptr;
 
 	// --- 실행시 예외 : 스택이 비어있음 ---//
-	public class EmptyIntStackException extends RuntimeException {
-		public EmptyIntStackException() {
+	public class EmptyStackQueenException extends RuntimeException {
+		public EmptyStackQueenException() {
 		}
 	}
 
 	// --- 실행시 예외 : 스택이 가득 참 ---//
-	public class OverflowIntStackException extends RuntimeException {
-		public OverflowIntStackException() {
+	public class OverflowStackQueenException extends RuntimeException {
+		public OverflowStackQueenException() {
 		}
 	}
 
@@ -61,23 +61,23 @@ public class StackQueen {
 	}
 
 	// --- 스택에 x를 푸시 ---//
-	public Point push(Point p) throws OverflowIntStackException {
+	public Point push(Point p) throws OverflowStackQueenException {
 		if (ptr >= capacity) // 스택이 가득 참
-			throw new OverflowIntStackException();
+			throw new OverflowStackQueenException();
 		return stk[ptr++] = p;
 	}
 
 	// --- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
-	public Point pop() throws EmptyIntStackException {
+	public Point pop() throws EmptyStackQueenException {
 		if (ptr <= 0) // 스택이 빔
-			throw new EmptyIntStackException();
+			throw new EmptyStackQueenException();
 		return stk[--ptr];
 	}
 
 	// --- 스택에서 데이터를 피크(peek, 정상에 있는 데이터를 들여다봄) ---//
-	public Point peek() throws EmptyIntStackException {
+	public Point peek() throws EmptyStackQueenException {
 		if (ptr <= 0) // 스택이 빔
-			throw new EmptyIntStackException();
+			throw new EmptyStackQueenException();
 		return stk[ptr - 1];
 	}
 
