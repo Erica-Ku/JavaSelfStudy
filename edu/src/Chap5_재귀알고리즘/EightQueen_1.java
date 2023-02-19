@@ -2,69 +2,84 @@ package Chap5_재귀알고리즘;
 
 public class EightQueen_1 {
 	public static void SolveQueen(int[][] d) {
- 		int count = 0, answer = 0; // count: queen말 놓으면 1, 아니면 0
-		int xrow = 0, ycol = 0; // x:row y:col
-
-		StackQueen st = new StackQueen(10); // traced 좌표 넣을 스택
-		Point p = new Point(xrow, ycol);
-		d[xrow][ycol] = 1;
-		st.push(p);
+		int count = 0;
+		int ix = 0, iy = 0;
+		StackQueen st = new StackQueen(d.length);
+		d[ix][iy] = 1;
 		count++;
-		
+		Point pt = new Point(ix, iy);
+		st.push(pt);
+		// 퀸을 모든 행에 배치할 동안
 		while (count < d.length) {
-			
-			while (xrow < d.length) {
-				xrow++;
-				ycol = 0;
+			// 0행부터 검사하겠다
+			ix++;
+			iy = 0;
+			// iy열의 행ix 1행, 2행, 3행들을 다 검사 하겠다.
+			while (ix < d.length) {
+				System.out.println("ix = " + ix + ", iy = " + iy);
+				// 체크해서 가능하면
+				iy = NextMove(d, ix, iy);
+				if (iy < d.length) {
+					d[ix][iy] = 1;
+					Point px = new Point(ix, iy);
+					st.push(px);
+					count++;
+					break;
 
-				while (ycol < d[0].length) {
-					System.out.println("전:xrow = " + xrow + "ycol = " + ycol);
-					ycol = NextMove(d, xrow, ycol);
-					System.out.println("후: xrow = " + xrow + "ycol = " + ycol);
+				} else { // 체크해서 가능하지 않으면
 
-					if (ycol < d.length) {
-						Point px = new Point(xrow, ycol);
-						d[xrow][ycol] = 1;
-						st.push(px);
-						count++;
-						break;
-					}
+					Point pa = st.pop(); // 스택에서 이전 위치를 팝하고
 
-					if (ycol >= d[0].length) {
-						st.pop();
-						xrow = p.getX();
-						ycol = p.getY();
-						ycol++;
-					}
+					ix = pa.getX();
+					iy = pa.getY(); // 좌표를 돌려놓고,
+					d[ix][iy] = 0; // 이전 위치 데이터 삭제
+					count--;
+					iy++; // 다음 위치를 검사
 
 				}
-
 			}
-			System.out.println(d[xrow][ycol]);
+
 		}
+
 	}
 
+	// row를 검사함. 왼쪽, 오른쪽을 검사
 	public static boolean checkRow(int[][] d, int crow) {
+
 		for (int i = 0; i < d.length; i++) {
 			if (d[crow][i] == 1) {
 				return false;
 			}
 		}
+
 		return true;
 	}
 
+	// col을 검사. 위, 아래를 검사
 	public static boolean checkCol(int[][] d, int ccol) {
-		for (int j = 0; j < d[0].length; j++) {
-			if (d[j][ccol] == 1) {
+
+		for (int i = 0; i < d[0].length; i++) {
+			if (d[i][ccol] == 1) {
 				return false;
 			}
 		}
 		return true;
 	}
 
+	// 왼쪽 위쪽 대각선을 검사
 	public static boolean checkDiagSW(int[][] d, int x, int y) { // x++, y-- or x--, y++ where 0<= x,y <= 7
-		int cx = x, cy = y;
-		while (cx >= 0 && cx < d.length && cy >= 0 && cy < d.length) {
+		int cx = x;
+		int cy = y;
+		while (cx >= 0 && cx <= d.length - 1 && cy >= 0 && cy <= d[0].length - 1) {
+			if (d[cx][cy] == 1) {
+				return false;
+			}
+			cx++;
+			cy--;
+		}
+		cx = x;
+		cy = y;
+		while (cx >= 0 && cx <= d.length - 1 && cy >= 0 && cy <= d[0].length - 1) {
 			if (d[cx][cy] == 1) {
 				return false;
 			}
@@ -73,19 +88,25 @@ public class EightQueen_1 {
 		}
 		cx = x;
 		cy = y;
-		while (cx >= 0 && cx < d.length && cy >= 0 && cy < d.length) {
-			if (d[cx][cy] == 1) {
-				return false;
-			}
-			cx++;
-			cy--;
-		}
 		return true;
 	}
 
+	// 오른쪽 위쪽 대각선을 검사
 	public static boolean checkDiagSE(int[][] d, int x, int y) {// x++, y++ or x--, y--
-		int cx = x, cy = y;
-		while (cx >= 0 && cx < d.length && cy >= 0 && cy < d.length) {
+		int cx = x;
+		int cy = y;
+		while (cx >= 0 && cx <= d.length - 1 && cy >= 0 && cy <= d[0].length - 1) {
+
+			if (d[cx][cy] == 1) {
+				return false;
+			}
+			cx--;
+			cy--;
+		}
+		cx = x;
+		cy = y;
+		while (cx >= 0 && cx <= d.length - 1 && cy >= 0 && cy <= d[0].length - 1) {
+
 			if (d[cx][cy] == 1) {
 				return false;
 			}
@@ -94,45 +115,28 @@ public class EightQueen_1 {
 		}
 		cx = x;
 		cy = y;
-		while (cx >= 0 && cx < d.length && cy >= 0 && cy < d.length) {
-			if (d[cx][cy] == 1) {
-				return false;
-			}
-			cx--;
-			cy--;
-		}
 		return true;
 	}
 
+	// 양옆, 위아래, 대각선에 1이 없으면 True를 반환한다
 	public static boolean CheckMove(int[][] d, int x, int y) {// (x,y)로 이동 가능한지를 check
-		// 현재 위치 (x,y)에 대하여 가로, 세로, 대각선 체크
-		if ((checkRow(d, x) && checkCol(d, y) && checkDiagSW(d, x, y) && checkDiagSE(d, x, y)) == true)
+		if (checkRow(d, x) && checkCol(d, y) && checkDiagSW(d, x, y) && checkDiagSE(d, x, y))
 			return true;
+
 		return false;
-//		if (d[x][y] == d.length) {
-//			for (int i = 0; i < d.length; i++) {
-//				System.out.println(d[x][i]);
-//			}
-//			System.out.println("");
-//		} else {
-//			for (int i = 0; i < d.length; i++) {
-//
-//			}
-//		}
-//		return false;
+
 	}
 
-	public static int NextMove(int[][] d, int row, int col) {// 다음 row에 대하여 이동할 col
-		// 주어진 row에 대하여 col을 이동하여 놓을 지 있는지를 체크하고 가능한 경우에 col을 리턴한다.
-		while (col < d.length) {
-			if (CheckMove(d, row, col) == true)
-				{return col;}
-			else {col++;}
+	public static int NextMove(int[][] d, int x, int y) {// (x,y)로 이동 가능한지를 check
+		while (y < d.length) {
+			if (CheckMove(d, x, y))
+				return y;
+			y++;
 		}
 		return d.length;
+
 	}
 
-	// 체스 메인 함수
 	public static void main(String[] args) {
 		int row = 8, col = 8;
 		int[][] data = new int[8][8];
@@ -141,6 +145,7 @@ public class EightQueen_1 {
 				data[i][j] = 0;
 
 		SolveQueen(data);
+
 		for (int i = 0; i < data.length; i++) {
 			for (int j = 0; j < data[0].length; j++) {
 				System.out.print(" " + data[i][j]);

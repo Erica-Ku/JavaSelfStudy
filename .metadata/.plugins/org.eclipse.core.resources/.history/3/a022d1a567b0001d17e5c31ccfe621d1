@@ -11,6 +11,10 @@ class Point3 {
 		iy = y;
 	}
 
+	public String toString() {
+		return "<" + ix + ", " + iy + ">";
+	}
+
 	public int getX() {
 		return ix;
 	}
@@ -29,9 +33,9 @@ class Point3 {
 }
 
 public class StackQueen {
-	private Point[] stk; // 스택용 배열
-	private int capacity; // 스택의 크기
-	private int ptr; // 스택 포인터
+	private Point[] stk;
+	private int capacity;
+	private int ptr;
 
 	// --- 실행시 예외 : 스택이 비어있음 ---//
 	public class EmptyStackQueenException extends RuntimeException {
@@ -120,4 +124,5 @@ public class StackQueen {
 			System.out.println();
 		}
 	}
+
 }
