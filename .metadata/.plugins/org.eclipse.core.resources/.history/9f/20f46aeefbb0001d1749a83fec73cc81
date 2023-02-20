@@ -6,7 +6,7 @@ public class Maze {
 		int a, b;
 	}
 
-	static class items {
+	class items {
 		int x;
 		int y;
 		int dir;
@@ -17,11 +17,10 @@ public class Maze {
 	}
 	
 	static offsets moves[] = new offsets [8];
-	static int maze[][] = new int [100][100];
-	static int mark[][] = new int [100][100];
-	static int N;
+	int maze[][] = new int [100][100];
+	int mark[][] = new int [100][100];
 	
-	static void path(int m, int p) {
+	void path(int m, int p) {
 		mark[1][1] = 1;
 		MazeStack ms = new MazeStack(m*p);
 		items items = new items();
@@ -29,7 +28,7 @@ public class Maze {
 		
 		items.x = 1;
 		items.y = 1;
-		items.dir = 2;
+		items.dir = 'E';
 		
 		ms.push(items.x);
 		ms.push(items.y);
@@ -75,33 +74,14 @@ public class Maze {
 						{ 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0 },
 						{ 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 },
 						{ 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0 }};
-		moves[0].a = -1; moves[0].b = 0;
-		moves[1].a = -1; moves[1].b = 1;
-		moves[2].a = 0; moves[2].b = 1;
-		moves[3].a = 1; moves[3].b = 1;
-		moves[4].a = 1; moves[4].b = 0;
-		moves[5].a = 1; moves[5].b = -1;
-		moves[6].a = 0; moves[6].b = -1;
-		moves[7].a = -1; moves[7].b = -1;
-		
-		for (int i = 0; i < 14; i++) {
-			for (int j = 0; j < 17; j++)
-			{
-				if ((i!=i) || (j!=j) || (i == 13) || (j == 16))
-					maze[i][j] = 1;
-				else {
-					maze[i][j] = input[i - 1][j - 1];
-				};
-				mark[i][j] = 0;
-
-			}
-		}
-		for (int i = 0; i <= 13; i++)
-		{
-			for (int j = 0; j <= 16; j++)
-				System.out.println(maze[i][j] + " "); 
-			System.out.println();
-		}
-		path(12, 15);
+		moves['N'].a = -1; moves['N'].b = 0;
+		moves['n'].a = -1; moves['n'].b = 1;
+		moves['E'].a = 0; moves['E'].b = 1;
+		moves['e'].a = 1; moves['e'].b = 1;
+		moves['S'].a = 1; moves['S'].b = 0;
+		moves['s'].a = 1; moves['s'].b = -1;
+		moves['W'].a = 0; moves['W'].b = -1;
+		moves['w'].a = -1; moves['w'].b = -1;
 	}
+	
 }
