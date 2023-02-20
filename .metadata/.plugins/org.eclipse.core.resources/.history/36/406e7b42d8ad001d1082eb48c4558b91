@@ -13,8 +13,6 @@ public class EightQueen {
 	//- 함수 호출로 구현 훈련
 	void SolveQueen(int [][]d) {
 	       //코딩 완성하기
-		int count = 1, ncount = 0;
-		
 		
 	    }
 	// => 8  Queen 문제 풀기: 스택 사용하여 backtracking 코딩 실습
