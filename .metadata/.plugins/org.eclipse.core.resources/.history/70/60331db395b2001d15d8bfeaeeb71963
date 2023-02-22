@@ -1,0 +1,10 @@
+package Chap5_재귀알고리즘;
+
+public class EightQueen_1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

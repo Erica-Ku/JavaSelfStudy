@@ -1,9 +1,9 @@
 package Chap5_재귀알고리즘;
 
-//int형 고정 길이 스택
+import Chap5_재귀알고리즘.Maze.items;
 
 public class MazeStack {
- private int[] stk;           // 스택용 배열
+ private items[] stk;           // 스택용 배열
  private int capacity;        // 스택의 크기
  private int ptr;             // 스택 포인터
 
@@ -22,7 +22,7 @@ public class MazeStack {
      ptr = 0;
      capacity = maxlen;
      try {
-         stk = new int[capacity];          // 스택 본체용 배열을 생성
+         stk = new items[capacity];          // 스택 본체용 배열을 생성
      } catch (OutOfMemoryError e) {        // 생성할 수 없음
          capacity = 0;
      }
@@ -30,21 +30,21 @@ public class MazeStack {
 
  
  //--- 스택에 x를 푸시 ---//
- public int push(int x) throws OverflowMazeStackException {
+ public items push(items x) throws OverflowMazeStackException {
      if (ptr >= capacity)                                    // 스택이 가득 참
          throw new OverflowMazeStackException();
      return stk[ptr++] = x;
  }
 
  //--- 스택에서 데이터를 팝(정상에 있는 데이터를 꺼냄) ---//
- public int pop() throws EmptyMazeStackException {
+ public items pop() throws EmptyMazeStackException {
      if (ptr <= 0)                                          // 스택이 빔
          throw new EmptyMazeStackException();
      return stk[--ptr];
  }
 
  //--- 스택에서 데이터를 피크(peek, 정상에 있는 데이터를 들여다봄) ---//
- public int peek() throws EmptyMazeStackException {
+ public items peek() throws EmptyMazeStackException {
      if (ptr <= 0)                                        // 스택이 빔
          throw new EmptyMazeStackException();
      return stk[ptr - 1];
@@ -55,9 +55,10 @@ public class MazeStack {
      ptr = 0;
  }
  //--- 스택에서 x를 찾아 인덱스(없으면 –1)를 반환 ---//
- public int indexOf(int x) {
+ @SuppressWarnings("unlikely-arg-type")
+public int indexOf(int x) {
      for (int i = ptr - 1; i >= 0; i--)     // 꼭대기 쪽부터 선형 검색
-         if (stk[i] == x)
+         if (stk[i].equals(x))
              return i;         // 검색 성공
      return -1;                // 검색 실패
  }

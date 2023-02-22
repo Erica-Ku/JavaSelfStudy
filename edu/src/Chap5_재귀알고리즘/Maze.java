@@ -2,67 +2,93 @@ package Chap5_재귀알고리즘;
 
 public class Maze {
 	
-	class offsets {
+	static class offsets {
 		int a, b;
+		offsets(int a, int b) {
+			this.a = a;
+			this.b = b;
+		}
 	}
 
 	static class items {
 		int x;
 		int y;
 		int dir;
+		items(int x, int y, int dir) {
+			this.x = x;
+			this.y = y;
+			this.dir = dir;
+		}
 	}
 	
-	enum direction {
-		N, n, E, e, S, s, W, w
-	}
-	
-	static offsets moves[] = new offsets [8];
-	static int maze[][] = new int [100][100];
-	static int mark[][] = new int [100][100];
-	static int N;
-	
-	static void path(int m, int p) {
+	static void path(int[][] maze, int[][] mark, int x, int y) {
+		MazeStack st = new MazeStack(100);
+		offsets move[] = new offsets[8];
+		for(int i = 0; i < 8; i++) {
+			move[i] = new offsets(0,0);
+		}
+		move[0].a = -1;
+		move[0].b = 0;
+		move[1].a = -1;
+		move[1].b = 1;
+		move[2].a = 0;
+		move[2].b = 1;
+		move[3].a = 1;
+		move[3].b = 1;
+		move[4].a = 1;
+		move[4].b = 0;
+		move[5].a = 1;
+		move[5].b = -1;
+		move[6].a = 0;
+		move[6].b = -1;
+		move[7].a = -1;
+		move[7].b = -1;
+		
 		mark[1][1] = 1;
-		MazeStack ms = new MazeStack(m*p);
-		items items = new items();
-		int temp;
 		
-		items.x = 1;
-		items.y = 1;
-		items.dir = 2;
+		items temp = new items(0, 0, 0);
+		temp.x = 1;
+		temp.y = 1;
+		temp.dir = 2;
+		st.push(temp);
 		
-		ms.push(items.x);
-		ms.push(items.y);
-		ms.push(items.dir);
-		
-		while(!ms.isEmpty()) {
-			temp = ms.pop();
-			int i = items.x; int j = items.y; int d = items.dir;
+		while(!st.isEmpty()) {
+			temp = st.pop();
+			int i = temp.x; int j = temp.y; int d = temp.dir;
 			while(d<8) {
-				int g = i + moves[d].a;
-				int h = j + moves[d].b;
-				if ((g == m) && (h == p)) {
-					System.out.println(ms);
+				int g = i + move[d].a;
+				int h = j + move[d].b;
+				if ((g == 12) && (h == 15)) {
+					mark[g][h] = 2;
+					//st.push(new items(i,j,d));
+					//st.push(new items(g,h,d));
 					System.out.println("the term near the exit: " + i + " " + j );
-					System.out.println("exit: " + m + " " + p);
+					System.out.println("exit: " + 12 + " " + 15);
+					System.out.println();
 					return;
 				}
-				if (maze[i][j]!=maze[g][h]) 
-					if(mark[i][j]!=mark[g][h]) {
-						mark[g][h] = 1;
-						items.x = i;  items.y = j; items.dir = d + 1;
-						ms.push(items.x);
-						ms.push(items.y);
-						ms.push(items.dir);
-						i = g; j = h; d = N;
+				if ((maze[g][h]==0) && (mark[g][h]==0)) {
+					mark[g][h] = 2;
+					//temp.x = i;  temp.y = j; temp.dir = d + 1;
+					items tmp = new items(i, j, d + 1);
+					st.push(tmp);
+					//st.push(temp);
+					i = g; j = h; d = 0;
+				} else {if(d+1>=8) {
+					mark[i][j] = 1;
+					break;
+					}
+					mark[i][j] = 2;
 				}
-				else d++;
+				d++;
 			}
 		}
 		System.out.println("no path in maze ");
-	}
+}
 	
 	public static void main(String[] args) {
+		int maze[][] = new int [14][17];
+		int mark[][] = new int [14][17];
 		int input[][] = {{ 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1 },
 						{ 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 0, 1, 1, 1 },
 						{ 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 0, 0, 1, 1 },
@@ -75,33 +101,33 @@ public class Maze {
 						{ 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 0 },
 						{ 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0 },
 						{ 0, 1, 0, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0 }};
-		moves[0].a = -1; moves[0].b = 0;
-		moves[1].a = -1; moves[1].b = 1;
-		moves[2].a = 0; moves[2].b = 1;
-		moves[3].a = 1; moves[3].b = 1;
-		moves[4].a = 1; moves[4].b = 0;
-		moves[5].a = 1; moves[5].b = -1;
-		moves[6].a = 0; moves[6].b = -1;
-		moves[7].a = -1; moves[7].b = -1;
 		
 		for (int i = 0; i < 14; i++) {
 			for (int j = 0; j < 17; j++)
 			{
-				if ((i!=i) || (j!=j) || (i == 13) || (j == 16))
+				if ((i==0) || (j==0) || (i == 13) || (j == 16))
 					maze[i][j] = 1;
 				else {
 					maze[i][j] = input[i - 1][j - 1];
 				};
 				mark[i][j] = 0;
-
 			}
 		}
-		for (int i = 0; i <= 13; i++)
+		//미로
+		for (int i = 0; i < 14; i++)
 		{
-			for (int j = 0; j <= 16; j++)
-				System.out.println(maze[i][j] + " "); 
+			for (int j = 0; j < 17; j++)
+				System.out.print(maze[i][j] + " "); 
 			System.out.println();
 		}
-		path(12, 15);
+		
+		path(maze, mark, 12, 15);
+		//확정: 2, 되돌아감: 1
+		for (int i = 0; i < 14; i++)
+		{
+			for (int j = 0; j < 17; j++)
+				System.out.print(mark[i][j] + " "); 
+			System.out.println();
+		}
 	}
 }
