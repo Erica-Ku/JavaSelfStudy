@@ -2,7 +2,7 @@ package Chap4_스택과큐;
 
 import java.util.Random;
 import java.util.Scanner;
-class Point {
+ class Point {
 	private int ix;
 	private int iy;
 

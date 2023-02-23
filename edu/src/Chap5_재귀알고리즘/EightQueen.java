@@ -35,7 +35,7 @@ public class EightQueen {
 			ix++;
 			iy = 0;
 			while (ix < d.length) {
-				System.out.println("ix = " + ix + ", iy = " + iy);
+				//System.out.println("ix = " + ix + ", iy = " + iy);
 				iy = NextMove(d, ix, iy);
 				if (iy < d.length) {
 					d[ix][iy] = 1;
@@ -58,7 +58,7 @@ public class EightQueen {
 //	    -> 2차원 배열에 0으로 초기화, Queen을 배치하면 1로 설정, 8 X 8 배열에 8개 퀸이 가로 세로 대각선에 충돌이 없으면 성공
 	//
 //	    -> stack에 Point 객체를 생성하여 push, pop::(x, y, move) => move는 다음 이동 가능 candidate의 column임
-	        static class MyStack {
+	        public static class MyStack {
 	        	Point data []; //스택용 배열
 	        	int top; //스택 포인터
 	        	int capacity; //스택의 크기

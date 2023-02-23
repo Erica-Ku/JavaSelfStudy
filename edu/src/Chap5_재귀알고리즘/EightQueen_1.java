@@ -1,10 +1,10 @@
 package Chap5_재귀알고리즘;
 
-class Point5 {
+class Point4 {
 	private int x;
 	private int y;
 	
-	public Point5(int x, int y) {
+	public Point4(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -18,17 +18,17 @@ class Point5 {
 
 class Stack {
 	private int top;
-	private Point5 [] data;
+	private Point4 [] data;
 	
 	public Stack() {
 		top = 0;
-		data = new Point5[100];
+		data = new Point4[100];
 	}
 	
-	public void push(Point5 p) {
+	public void push(Point4 p) {
 		data[top++] = p;
 	}
-	public Point5 pop() {
+	public Point4 pop() {
 		return data[--top];
 	}
 }
@@ -109,7 +109,7 @@ public class EightQueen_1 {
 			while(y<col) {
 				if(checkMove(x,y,array)) {
 					array[x][y]=1;
-					st.push(new Point5(x,y));
+					st.push(new Point4(x,y));
 					y=0;
 					break;
 				}
