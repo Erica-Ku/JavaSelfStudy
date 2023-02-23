@@ -12,7 +12,7 @@ public class Test_QuickSort {
 
 		// --- 퀵 정렬(비재귀 버전)---//
 		static void quickSort(int[] a, int left, int right) {
-			QuickSort_Stack st = new QuickSort_Stack(10);
+		    QuickSort_Stack<Point> st = new QuickSort_Stack<>(10);
 		    Point pt = new Point(left, right);
 		    st.push(pt);
 		    

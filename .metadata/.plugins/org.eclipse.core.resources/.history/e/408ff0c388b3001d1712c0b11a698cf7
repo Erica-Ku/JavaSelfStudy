@@ -34,9 +34,9 @@ public class QuickSort_Stack {
 	private int top;
 	private Point [] data;
 	
-	public QuickSort_Stack(int i) {
+	public QuickSort_Stack() {
 		top = 0;
-		data = new Point[i];
+		data = new Point[100];
 	}
 	
 	public void push(Point p) {
