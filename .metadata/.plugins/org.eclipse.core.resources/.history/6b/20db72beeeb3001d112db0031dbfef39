@@ -17,7 +17,7 @@ class Element {
 interface MaxPQ {
 	public void Insert(Element x);
 
-	public Element DeleteMin(Element x);
+	public Element DeleteMax(Element x);
 }
 
 class MaxHeap implements MaxPQ {
@@ -108,6 +108,7 @@ public class HeapSortCPP {
 
 
 		Element deletedEle = null;
+
 		do {
 			System.out.println("Min Tree. Select: 1 insert, 2 display, 3 delete,  4 sort, 5 exit => ");
 			select = stdIn.nextInt();
@@ -137,9 +138,11 @@ public class HeapSortCPP {
 				for (int num: x)
 					System.out.println(" " + num);
 			case 5:
-				break;
+				return;
+
 			}
-		} while (select < 6);
+		} while (select < 5);
+
 		return;
 	}
 }

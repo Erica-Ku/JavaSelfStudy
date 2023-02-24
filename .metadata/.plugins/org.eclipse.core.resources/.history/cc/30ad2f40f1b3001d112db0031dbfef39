@@ -108,9 +108,10 @@ public class HeapSortCPP {
 
 
 		Element deletedEle = null;
+		select = stdIn.nextInt();
 		do {
 			System.out.println("Min Tree. Select: 1 insert, 2 display, 3 delete,  4 sort, 5 exit => ");
-			select = stdIn.nextInt();
+			//select = stdIn.nextInt();
 			switch (select) {
 			case 1:
 			     for (int i = 0; i < count; i++) {
@@ -137,9 +138,10 @@ public class HeapSortCPP {
 				for (int num: x)
 					System.out.println(" " + num);
 			case 5:
-				break;
+				return;
+
 			}
-		} while (select < 6);
+		} while (select < 5);
 		return;
 	}
 }

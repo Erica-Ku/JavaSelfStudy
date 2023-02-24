@@ -138,8 +138,9 @@ public class HeapSortCPP {
 					System.out.println(" " + num);
 			case 5:
 				break;
+
 			}
-		} while (select < 6);
+		} while (select < 5);
 		return;
 	}
 }
