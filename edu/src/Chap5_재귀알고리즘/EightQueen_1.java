@@ -28,9 +28,17 @@ class Stack {
 	public void push(Point4 p) {
 		data[top++] = p;
 	}
+	
 	public Point4 pop() {
 		return data[--top];
 	}
+	
+	public boolean isEmpty() {
+        if (top == 0)
+            return true;
+        else
+            return false;
+    }
 }
 
 public class EightQueen_1 {
@@ -100,28 +108,64 @@ public class EightQueen_1 {
 	
 	public static void solveQueen(int row, int col, int[][] array) {
 		Stack st = new Stack();
-		Point p = new Point(0,0);
+		Point4 p = new Point4(0,0);
 		
 		int x = p.getX();
 		int y = p.getY();
 		
-		while(x<row) {
-			while(y<col) {
-				if(checkMove(x,y,array)) {
-					array[x][y]=1;
-					st.push(new Point4(x,y));
-					y=0;
-					break;
-				}
-			}
-			y++;
-		}
-		x++;
+		int flag = 0;
+        while (true) {
+            while (x < row) {
+                while (y < col) {
+                    if (checkMove(x, y, array)) {
+                        array[x][y] = 1;
+                        st.push(new Point4(x, y));
+                        y = 0;
+                        break;
+                    }
+                    y++;
+                }
+                x++;
+                if (y >= col) {
+                    if (!st.isEmpty()) {
+                        p = st.pop();
+                        x = p.getX();
+                        y = p.getY();
+                        array[x][y] = 0;
+                        y++;
+                    }
+                    else{
+                        flag = 1;
+                        break;
+                    }
+
+                }
+            }
+            if (flag == 1) break;
+            printBoard(row, col, array);
+            p = st.pop();
+            x = p.getX();
+            y = p.getY();
+            array[x][y] = 0;
+            y++;
+        }
+    }
+    static int num = 0;
+    public static void printBoard(int row, int col, int[][] array) {
+
+        System.out.println(++num);
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[0].length; j++) {
+                System.out.print(array[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
 	}
 
 	public static void main(String[] args) {
-		int row = 4;
-		int col = 4;
+		int row = 8;
+		int col = 8;
 		int[][] array = new int[row][col];
 		
 		for(int i=0; i<array.length;i++) {
@@ -131,11 +175,5 @@ public class EightQueen_1 {
 		}
 		solveQueen(row, col, array);
 		
-		for(int i=0; i<array.length;i++) {
-			for(int j=0; j<array[0].length; j++) {
-				System.out.print(" "+array[i][j]);
-			}
-			System.out.println();
-		}
 	}
 }

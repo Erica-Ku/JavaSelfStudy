@@ -12,38 +12,30 @@ public class Test_QuickSort {
 
 		// --- 퀵 정렬(비재귀 버전)---//
 		static void quickSort(int[] a, int left, int right) {
-		    QuickSort_Stack<Point> st = new QuickSort_Stack<>(10);
+			QuickSort_Stack st = new QuickSort_Stack(10);
 		    Point pt = new Point(left, right);
 		    st.push(pt);
 		    
 		    while (!st.isEmpty()) {
 		        Point p = st.pop();
-		        left = p.getX();
-		        right = p.getY();
+		        int pl = left = p.getX();
+		        int pr = right = p.getY();
+		        int x = a[(left + right)/2];
 		        
-		        if (left < right) {
-		            int pivot = partition(a, left, right);
-		            st.push(new Point(left, pivot - 1));
-		            st.push(new Point(pivot + 1, right));
+		        do {
+		        	while (a[pl]<x) pl++;
+		        	while (a[pr]>x) pr--;
+		        	if (pl<=pr) swap(a, pl++, pr--);
+		        } while (pl<=pr);
+		        
+		        if (left<pr) {
+		        	st.push(new Point(left, pr));
+		        }
+		        
+		        if (pl<right) {
+		        	st.push(new Point(pl, right));
 		        }
 		    }
-		}
-
-		static int partition(int[] a, int left, int right) {
-		    int pivotIndex = left;
-		    int pivotValue = a[right];
-		    for (int i = left; i < right; i++) {
-		        if (a[i] < pivotValue) {
-		            int temp = a[i];
-		            a[i] = a[pivotIndex];
-		            a[pivotIndex] = temp;
-		            pivotIndex++;
-		        }
-		    }
-		    int temp = a[pivotIndex];
-		    a[pivotIndex] = a[right];
-		    a[right] = temp;
-		    return pivotIndex;
 		}
 			
 		public static void main(String[] args) {
