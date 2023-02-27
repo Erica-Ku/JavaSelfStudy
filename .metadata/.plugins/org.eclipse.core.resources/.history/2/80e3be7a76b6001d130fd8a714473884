@@ -1,0 +1,137 @@
+package Chap8_리스트;
+
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node link;
+    
+    public Node(int element) {
+        link = null;
+        data = element;
+    }
+}
+
+class LinkedList {
+    Node first;
+    
+    public LinkedList() {
+        first = null;
+    }
+    
+    public boolean delete(int element) {
+        // Delete the node with the given element
+        Node p = first, q = null;
+        while (p != null) {
+            if (p.data == element) {
+                if (q == null) {
+                    first = p.link;
+                } else {
+                    q.link = p.link;
+                }
+                return true;
+            } else if (p.data < element) {
+                q = p;
+                p = p.link;
+            } else {
+                break;
+            }
+        }
+        return false;
+    }
+    
+    public void show() {
+        // Display the list in order
+        Node p = first;
+        while (p != null) {
+            System.out.println(p.data);
+            p = p.link;
+        }
+    }
+    
+    public void add(int element) {
+        // Insert a node with the given element in ascending order
+        Node newNode = new Node(element);
+        Node p = first, q = null;
+        while (p != null && p.data < element) {
+            q = p;
+            p = p.link;
+        }
+        if (q == null) {
+            first = newNode;
+        } else {
+            q.link = newNode;
+        }
+        newNode.link = p;
+    }
+    
+    public boolean search(int data) {
+        // Search for a node with the given data
+        Node p = first;
+        while (p != null) {
+            if (p.data == data) {
+                return true;
+            }
+            p = p.link;
+        }
+        return false;
+    }
+}
+
+public class Test_SimpleList_1 {
+    
+    enum Menu {
+        ADD("삽입"), DELETE("삭제"), SHOW("인쇄"), SEARCH("검색"), EXIT("종료");
+        
+        private final String message;
+        
+        Menu(String message) {
+            this.message = message;
+        }
+        
+        public String getMessage() {
+            return message;
+        }
+    }
+    
+    // Select a menu option
+    static Menu selectMenu() {
+        Scanner sc = new Scanner(System.in);
+        int key;
+        do {
+            for (Menu m : Menu.values()) {
+                System.out.printf("(%d) %s  ", m.ordinal(), m.getMessage());
+                if ((m.ordinal() + 1) % 3 == 0 && m.ordinal() != Menu.EXIT.ordinal()) {
+                    System.out.println();
+                }
+            }
+            System.out.print(" : ");
+            key = sc.nextInt();
+        } while (key < Menu.ADD.ordinal() || key > Menu.EXIT.ordinal());
+        return Menu.values()[key];
+    }
+    
+    public static void main(String[] args) {
+        Menu menu; // Selected menu option
+        System.out.println("Linked List");
+        LinkedList list = new LinkedList();
+        Scanner sc = new Scanner(System.in);
+        int data = 0;
+        System.out.println("inserted");
+        list.show();
+        
+        do {
+            menu = selectMenu();
+            
+            switch (menu) {
+                case ADD:
+                    double d = Math.random();
+                    data = (int) (d * 50);
+                    list.add(data);
+                    break;
+                case DELETE:
+                    System.out.print("삭제할 데이터: ");
+                    int num = sc.nextInt();
+                    boolean result = list.delete(num);
+                    if (result) {
+                        System.out.println("삭제된 데이터

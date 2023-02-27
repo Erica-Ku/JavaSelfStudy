@@ -2,6 +2,7 @@ package Chap4_스택과큐;
 
 import java.util.Random;
 import java.util.Scanner;
+
 class Point_2 {
 	private int ix;
 	private int iy;
@@ -38,7 +39,7 @@ public class 원형큐_test {
 		원형큐 s = new 원형큐(4); // 최대 4개를 push할 수 있는 큐
 		Random random = new Random();
 		int rndx = 0, rndy = 0;
-		Point p = null;
+		Point_2 p = null;
 		
 		while (true) {
 			System.out.println(); // 메뉴 구분을 위한 빈 행 추가
@@ -52,7 +53,7 @@ public class 원형큐_test {
 			case 1: // 푸시
 				rndx = random.nextInt() % 20;
 				rndy = random.nextInt() % 20;
-				p = new Point(rndx,rndy);
+				p = new Point_2(rndx,rndy);
 				try {
 					s.push(p);
 					System.out.println("push한 데이터는 " + p + "입니다.");

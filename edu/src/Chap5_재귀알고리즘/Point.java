@@ -1,31 +1,31 @@
 package Chap5_재귀알고리즘;
 
 public class Point {
-		private int ix;
-		private int iy;
+		private int x;
+		private int y;
 
 		public Point(int x, int y) {
-			ix = x;
-			iy = y;
+			this.x = x;
+			this.y = y;
 		}
 		
 		public String toString() {
-			return "<" + ix + ", " + iy + ">";
+			return "<" + x + ", " + y + ">";
 		}
 
 		public int getX() {
-			return ix;
+			return x;
 		}
 
 		public int getY() {
-			return iy;
+			return y;
 		}
 
 		public void setX(int x) {
-			ix = x;
+			this.x = x;
 		}
 
 		public void setY(int y) {
-			iy = y;
+			this.y = y;
 		}
 }

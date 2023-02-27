@@ -1,7 +1,7 @@
 package Chap4_스택과큐;
 
 public class 원형큐 {
-	private Point[] data;
+	private Point_2 [] data;
 	//private int capacity;         
     private int front;            
     private int rear;
@@ -28,14 +28,14 @@ public class 원형큐 {
     	//this.capacity = capacity;
     	isEmpty = true;
     	try {
-    		data = new Point[capacity];
+    		data = new Point_2 [capacity];
     	} catch (OutOfMemoryError e) {
     		capacity = 0;
     	}
     }
     
     //큐에 데이터를 push
-    public void push(Point x) throws Overflow원형큐Exception {
+    public void push(Point_2 x) throws Overflow원형큐Exception {
 //    	if (isFull()) throw new Overflow원형큐Exception();
 //    	else {
 //    		num++;
@@ -60,7 +60,7 @@ public class 원형큐 {
     }
     
     //큐에 데이터를 pop
-    public Point pop() throws Empty원형큐Exception {
+    public Point_2 pop() throws Empty원형큐Exception {
     	if (rear==front && isEmpty) throw new Empty원형큐Exception();
 //    	else {
 //			Point x = data[front];
@@ -72,7 +72,7 @@ public class 원형큐 {
 //			return x;
 //		}
     	else {
-    		Point x = data[front];
+    		Point_2 x = data[front];
     		front++;
     		front%=queue_size;
     		if(front==rear) isEmpty=true;
