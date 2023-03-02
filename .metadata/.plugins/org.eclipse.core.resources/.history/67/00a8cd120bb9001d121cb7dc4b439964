@@ -210,7 +210,7 @@ public class Test_SimpleObjectList {
 	            switch (menu = SelectMenu()) {	             
 	             case Add :                           // 머리노드 삽입
 	            	 data = new SimpleObject(sc.next(), sc.next());
-	            	 System.out.println("입력, 111을 적으시오.");
+	            	 System.out.println("데이터를 읽음");
 	            	 data.scanData(sc.next(), sc.nextInt());
 	    	         l.Add(data);
 	                     break;

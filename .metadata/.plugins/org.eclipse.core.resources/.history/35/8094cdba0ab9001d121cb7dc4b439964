@@ -71,7 +71,6 @@ class SimpleObject implements Comparable<SimpleObject> {
 class Node1 {
 	SimpleObject data;
 	Node1 link;
-	
 	public Node1(SimpleObject element) {
 		link = null;
 		data = element;
@@ -210,7 +209,6 @@ public class Test_SimpleObjectList {
 	            switch (menu = SelectMenu()) {	             
 	             case Add :                           // 머리노드 삽입
 	            	 data = new SimpleObject(sc.next(), sc.next());
-	            	 System.out.println("입력, 111을 적으시오.");
 	            	 data.scanData(sc.next(), sc.nextInt());
 	    	         l.Add(data);
 	                     break;
