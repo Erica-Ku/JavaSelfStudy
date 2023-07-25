@@ -1,4 +1,0 @@
-INDEX VERSION 1.131+D:\minji\java_class\.metadata\.plugins\org.eclipse.jdt.core
-3501714628.index
-3481095645.index
-1865797976.index
